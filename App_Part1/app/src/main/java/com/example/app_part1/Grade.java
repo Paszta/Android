@@ -1,5 +1,7 @@
 package com.example.app_part1;
 
+import java.util.List;
+
 public class Grade {
 
     private String name;
@@ -29,4 +31,16 @@ public class Grade {
     public void setGrade(int grade) {
         this.grade = grade;
     }
+
+    public static float averageGrade(List<Grade> grades){
+        float sum=0;
+        for(Grade all: grades){
+            sum+=all.getGrade();
+        }
+        return sum/grades.size();
+    }
+
+
+
+
 }

@@ -35,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
     }
     boolean gradeRegex(String grade) {
         boolean b = false;
+        int grades = 0;
         if (!grade.isEmpty()) {
-            int grades = Integer.parseInt(grade);
+            try {
+                grades = Integer.parseInt(grade);
+            } catch (NumberFormatException e) {
+                grades = 0;
+            }
 
             if (grades >= 5 && grades <= 15) b = true;
             else b = false;
@@ -51,6 +56,22 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondScreen.class);
         intent.putExtra(GRADES,grades_amount);
         startActivityForResult(intent,GRADES_CODE);
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Button old_btn = (Button) findViewById(R.id.b_grades);
+        old_btn.setVisibility(View.INVISIBLE);
+        Button result_btn = (Button) findViewById(R.id.b_result);
+        TextView result = (TextView) findViewById(R.id.average);
+        float res = data.getFloatExtra(SecondScreen.AVERAGE,0);
+        result.setText("Your average grade is " + res);
+        result.setVisibility(View.VISIBLE);
+        if(res >=3  ){
+            result_btn.setText("Classes passed!");
+        } else result_btn.setText("You must retake");
+        result_btn.setVisibility(View.VISIBLE);
 
     }
 
