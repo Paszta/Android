@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        String message;
         super.onActivityResult(requestCode, resultCode, data);
         Button old_btn = (Button) findViewById(R.id.b_grades);
         old_btn.setVisibility(View.INVISIBLE);
@@ -70,8 +71,23 @@ public class MainActivity extends AppCompatActivity {
         result.setVisibility(View.VISIBLE);
         if(res >=3  ){
             result_btn.setText("Classes passed!");
-        } else result_btn.setText("You must retake");
+            result_btn.setVisibility(View.VISIBLE);
+            message="Congrats!";
+        } else {
+            result_btn.setText("You must retake");
         result_btn.setVisibility(View.VISIBLE);
+            message="Sending retake request...";
+        }
+
+        result_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,
+                        message, Toast.LENGTH_LONG)
+                        .show();
+                finish();
+            }
+        });
 
     }
 
@@ -148,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
                 startSecondActivity();
             }
         });
+
+
 
 
 
