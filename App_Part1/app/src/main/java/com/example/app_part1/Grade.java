@@ -43,13 +43,18 @@ public class Grade {
 
     public static float averageGrade(List<Grade> grades){
         float sum=0;
-        for(Grade all: grades){
-            sum+=all.getGrade();
+        for(Grade all: grades) {
+            sum += all.getGrade();
         }
         return sum/grades.size();
     }
 
-
-
+    public static boolean checkAllRows(List<Grade> grades){
+        boolean isFine = true;
+        for(Grade all: grades) {
+            if(all.getGrade() == 0) isFine = false;
+        }
+        return isFine;
+    }
 
 }

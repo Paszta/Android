@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class SecondScreen extends AppCompatActivity {
         Bundle bndl = getIntent().getExtras();
         int grades = bndl.getInt(MainActivity.GRADES);
 
+        //generowanie ocen do zaznaczenia w listview zgodnie z iloscia podana w glownej aktynowsci
         for (int i =1; i<= grades; i++){
             gradeList.add(new Grade("ocena" + i));
         }
@@ -47,7 +49,16 @@ public class SecondScreen extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backToMainScreen();
+                //sprawdzenie czy wszytskie oceny sa zaznaczone (tj. czy nie wynosza 0)
+                if(Grade.checkAllRows(gradeList)){
+                    backToMainScreen();
+                }
+                else {
+                    Toast.makeText(SecondScreen.this,
+                            "Not all grades are checked", Toast.LENGTH_LONG)
+                            .show();
+                }
+
             }
         });
 

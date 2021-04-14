@@ -31,21 +31,23 @@ public class GradesArrayAdapter  extends ArrayAdapter<Grade> {
 
         View view = null;
 
-
-
         if(recycledView == null){
             LayoutInflater flater = activity.getLayoutInflater();
             view = flater.inflate(R.layout.grade, parent, false);
             RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.gradesGroup);
             radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+                //odczytanie taga
                 Grade tag = (Grade) group.getTag();
+                //przypisanie do oceny z tagiem zaznaczonego id
                 tag.setCurrentGrade(checkedId);
                 RadioButton checkedGrade = activity.findViewById(checkedId);
                 try{
+                    //przypisanie do obiektu oceny odpowiedniej oceny pobranej z zaznaczonego radiobuttona
                     tag.setGrade(Integer.parseInt(checkedGrade.getText().toString()));
-                }
+                } // try-catch zapobiega wylaczeniu aplikacji gdy parsowane jest puste zaznaczenie
                 catch (NullPointerException e) { }
             });
+            //ustawienie taga przy odpowiednim rzedzie w tablicy
             radioGroup.setTag(gradesArray.get(row));
         } else {
             view = recycledView;
@@ -58,7 +60,9 @@ public class GradesArrayAdapter  extends ArrayAdapter<Grade> {
         tv.setText(grade.getName());
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.gradesGroup);
         Integer checkedFalse = ((Grade)radioGroup.getTag()).getCurrentGrade();
+        //sprawdzenie czy zaznaczone buttony faktycznie zostaly zaznaczone (a nie z cache)
         if(checkedFalse != null) radioGroup.check(checkedFalse);
+        //jezeli nie zostaly faktycznie zaznaczone to radiogroup jest czyszczony
         else radioGroup.clearCheck();
 
         return view;

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     boolean valid_error_sname = false;
     boolean valid_error_grades = false;
 
+    //Funkcje sprawdzające poprawność wpisywanych danych
     boolean nameRegex(String name){
         Pattern p = Pattern.compile("[A-Z][a-z]{1,}");
         Matcher m = p.matcher(name);
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         return b;
     }
 
+    //Funkcja przechodząca do drugiej aktywności
     private void startSecondActivity(){
 
         EditText quantity_grades = (EditText) findViewById(R.id.et_grades);
@@ -58,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent,GRADES_CODE);
 
     }
-
+    //Funkcja "odbierająca" dane z drugiej aktnosci,
+    //Ustawia widocznosc odpowiednich buttonów i textview, w zależności od obliczonej średniej
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         String message;
         super.onActivityResult(requestCode, resultCode, data);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             message="Sending retake request...";
         }
 
+    //Listener przyciskow pojawiajacych sie dopiero po otrzymaniu sredniej
         result_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             
             @Override
             public void afterTextChanged(Editable s) {
+                //sprawdzanie czy imie nie jest puste i czy spelnia wyrazenie regularne w swoim walidatorze
                 if(!nameRegex(et_name.getText().toString()) && !et_name.getText().toString().isEmpty()){
                     name_err.setVisibility(View.VISIBLE);
                     valid_error_name = true;
@@ -127,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     name_err.setVisibility(View.INVISIBLE);
                     valid_error_name = false;
                 }
-
+                //sprawdzanie czy nazwisko nie jest puste i czy spelnia wyrazenie regularne w swoim walidatorze
                 if(!nameRegex(et_surname.getText().toString()) && !et_surname.getText().toString().isEmpty()){
                     surname_err.setVisibility(View.VISIBLE);
                     valid_error_sname = true;
@@ -135,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                     surname_err.setVisibility(View.INVISIBLE);
                     valid_error_sname = false;
                 }
-
+                //sprawdzanie czy ilosc ocen nie jest pusta i czy spelnia wyrazenie regularne w swoim walidatorze
                 if(!gradeRegex(et_grades.getText().toString()) && !et_grades.getText().toString().isEmpty()){
                     grades_err.setVisibility(View.VISIBLE);
                     valid_error_grades = true;
@@ -143,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                     grades_err.setVisibility(View.INVISIBLE);
                     valid_error_grades = false;
                 }
-
+                //jezeli zadna z powyzszych petli warunkowych nie wskazala bledu to pojawia sie przycisk umozliwiajacy przejscie do kolejnej aktywnosci
                 if(et_grades.getText().toString().isEmpty() || et_surname.getText().toString().isEmpty() || et_grades.getText().toString().isEmpty() ||
                         valid_error_name || valid_error_sname || valid_error_grades){
                     btn_grades.setVisibility(View.INVISIBLE);
