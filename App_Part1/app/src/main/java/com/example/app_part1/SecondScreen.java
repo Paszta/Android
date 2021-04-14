@@ -43,6 +43,7 @@ public class SecondScreen extends AppCompatActivity {
         GradesArrayAdapter adapter = new GradesArrayAdapter(gradeList,this );
         listView.setAdapter(adapter);
 
+
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

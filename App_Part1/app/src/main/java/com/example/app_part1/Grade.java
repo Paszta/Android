@@ -6,6 +6,7 @@ public class Grade {
 
     private String name;
     private int grade;
+    private int currentGrade;
 
     public Grade(String name, int grade) {
         this.name = name;
@@ -30,6 +31,14 @@ public class Grade {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    public int getCurrentGrade() {
+        return currentGrade;
+    }
+
+    public void setCurrentGrade(int currentGrade) {
+        this.currentGrade = currentGrade;
     }
 
     public static float averageGrade(List<Grade> grades){
