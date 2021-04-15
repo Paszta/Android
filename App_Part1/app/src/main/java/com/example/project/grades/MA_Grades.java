@@ -1,13 +1,10 @@
-package com.example.app_part1;
+package com.example.project.grades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project.R;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
+public class MA_Grades extends AppCompatActivity {
 
     public static final String GRADES = "grades";
     public static final int GRADES_CODE = 100;
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText quantity_grades = (EditText) findViewById(R.id.et_grades);
         int grades_amount = Integer.parseInt(quantity_grades.getText().toString());
-        Intent intent = new Intent(this, SecondScreen.class);
+        Intent intent = new Intent(this, SelectGardes.class);
         intent.putExtra(GRADES,grades_amount);
         startActivityForResult(intent,GRADES_CODE);
 
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         old_btn.setVisibility(View.INVISIBLE);
         Button result_btn = (Button) findViewById(R.id.b_result);
         TextView result = (TextView) findViewById(R.id.average);
-        float res = data.getFloatExtra(SecondScreen.AVERAGE,0);
+        float res = data.getFloatExtra(SelectGardes.AVERAGE,0);
         result.setText("Your average grade is " + res);
         result.setVisibility(View.VISIBLE);
         if(res >=3  ){
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         result_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,
+                Toast.makeText(MA_Grades.this,
                         message, Toast.LENGTH_LONG)
                         .show();
                 finish();

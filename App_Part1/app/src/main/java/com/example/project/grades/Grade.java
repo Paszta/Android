@@ -1,4 +1,4 @@
-package com.example.app_part1;
+package com.example.project.grades;
 
 import java.util.List;
 

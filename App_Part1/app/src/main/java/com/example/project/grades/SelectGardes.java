@@ -1,4 +1,4 @@
-package com.example.app_part1;
+package com.example.project.grades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.project.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondScreen extends AppCompatActivity {
+public class SelectGardes extends AppCompatActivity {
 
     private List<Grade> gradeList = new ArrayList<>();
     private ListView listView;
@@ -35,7 +37,7 @@ public class SecondScreen extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listview);
 
         Bundle bndl = getIntent().getExtras();
-        int grades = bndl.getInt(MainActivity.GRADES);
+        int grades = bndl.getInt(MA_Grades.GRADES);
 
         //generowanie ocen do zaznaczenia w listview zgodnie z iloscia podana w glownej aktynowsci
         for (int i =1; i<= grades; i++){
@@ -54,7 +56,7 @@ public class SecondScreen extends AppCompatActivity {
                     backToMainScreen();
                 }
                 else {
-                    Toast.makeText(SecondScreen.this,
+                    Toast.makeText(SelectGardes.this,
                             "Not all grades are checked", Toast.LENGTH_LONG)
                             .show();
                 }
