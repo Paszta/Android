@@ -2,8 +2,47 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu">
+    tools:context=".Menu"
+    android:background="@drawable/heniutek"
+    >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="208dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="56dp"
+        android:autoText="true"
+        android:text="Menu of the application"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textIsSelectable="false"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/firstapp_btn"
+        android:layout_width="197dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="24dp"
+        android:text="Average grade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/secapp_btn"
+        android:layout_width="197dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="24dp"
+        android:text="Database"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstapp_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
