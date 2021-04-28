@@ -98,7 +98,7 @@ public class MA_Grades extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.grades_mainactivity);
 
         EditText et_name = (EditText) findViewById(R.id.et_firstname);
         EditText et_surname = (EditText) findViewById(R.id.et_lastname);

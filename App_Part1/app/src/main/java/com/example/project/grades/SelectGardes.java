@@ -31,7 +31,7 @@ public class SelectGardes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_screen);
+        setContentView(R.layout.grades_countaverage);
         Button btn_back = (Button) findViewById(R.id.back_btn);
 
         listView = (ListView)findViewById(R.id.listview);
