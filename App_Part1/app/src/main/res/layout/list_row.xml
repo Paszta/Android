@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginTop="5dp"
         android:paddingVertical="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,15 +23,29 @@
 
             <TextView
                 android:id="@+id/positionId"
-                android:layout_width="1dp"
+                android:layout_width="131dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3" />
 
-            <TextView
-                android:id="@+id/positionTitle"
-                android:layout_width="116dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/positionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/positionWWW"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
