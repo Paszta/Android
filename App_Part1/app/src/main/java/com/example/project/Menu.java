@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.project.db.Movies_MainActivity;
 import com.example.project.grades.MA_Grades;
 
 public class Menu extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class Menu extends AppCompatActivity {
         secondapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    startActivity(new Intent(Menu.this, Movies_MainActivity.class));
             }
         });
 
