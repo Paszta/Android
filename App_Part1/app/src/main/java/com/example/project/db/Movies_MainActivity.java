@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.project.R;
@@ -32,6 +33,7 @@ public class Movies_MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movies__main);
 
         FloatingActionButton add_new_fabtn = (FloatingActionButton) findViewById(R.id.add_new);
+        Button truncate_btn = findViewById(R.id.truncate_btn);
 
         RecyclerView addedMovies = (RecyclerView) findViewById(R.id.recyclerView);
         movieAdapter = new MovieAdapter(this);
@@ -50,6 +52,13 @@ public class Movies_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent( Movies_MainActivity.this, AddNewMovie.class), ADD_MOVIE_REQUEST_CODE);
+            }
+        });
+
+        truncate_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieViewModel.deleteAll();
             }
         });
 

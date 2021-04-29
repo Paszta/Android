@@ -19,14 +19,21 @@
         app:srcCompat="@android:drawable/ic_input_add"
         tools:visibility="visible" />
 
+    <Button
+        android:id="@+id/truncate_btn"
+        android:layout_width="413dp"
+        android:layout_height="49dp"
+        android:text="Clear list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="412dp"
+        android:layout_height="553dp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/truncate_btn"
         tools:listitem="@layout/list_row"
-        />
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

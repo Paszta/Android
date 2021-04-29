@@ -39,4 +39,9 @@ public class MovieRepository {
         });
     }
 
+    void update(Movie movie){
+        AppDatabase.databaseWriteExecutor.execute(()->
+                daoMovie.updateMovie(movie));
+    }
+
 }

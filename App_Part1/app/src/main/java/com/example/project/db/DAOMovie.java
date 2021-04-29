@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -28,6 +29,8 @@ public interface DAOMovie {
     @Query("DELETE FROM Movies")
     void deleteAll();
 
+    @Update
+    void updateMovie(Movie movie);
 
     //aktualizowanie bazy
 //    @Query("UPDATE Movies SET title = :s_title, www = :s_www WHERE id = :s_id")
