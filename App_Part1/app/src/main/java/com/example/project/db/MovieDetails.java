@@ -54,6 +54,7 @@ public class MovieDetails extends AppCompatActivity {
             }
         });
 
+        //przekierowywanie na podany adres w przeglądarce
         directToWWW_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -94,4 +94,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         movieList = newMovieList;
         notifyDataSetChanged();
     }
+
+    public Movie getMovieAt(int position){
+        return movieList.get(position);
+    }
 }
