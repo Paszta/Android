@@ -4,29 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".db.Movies_MainActivity">
+    tools:context=".db.Movies_MainActivity"
+    android:background="@drawable/background_movies"
+    >
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/add_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="40dp"
+        android:backgroundTint="#060032"
         android:clickable="true"
+        android:text="+ ADD"
+        android:textColor="@color/white"
+        android:textAlignment="center"
         android:visibility="visible"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/truncate_btn"
+        android:layout_width="413dp"
+        android:layout_height="49dp"
+        android:text="Clear list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#060032"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="412dp"
+        android:layout_height="553dp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/truncate_btn"
         tools:listitem="@layout/list_row"
-        />
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_emptyList"
+        android:layout_width="241dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="108dp"
+        android:text="List's empty"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/truncate_btn"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

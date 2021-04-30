@@ -18,8 +18,9 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
-    public final static String TITLE_KEY = "title";
+    public final static String MOVIE_KEY = "movie";
     public final static String WWW_KEY = "www";
+    public final static int KOD = 2;
     private static final String TAG = MovieAdapter.class.getSimpleName();
     private List<Movie> movieList;
     private LayoutInflater layoutInflater;
@@ -51,10 +52,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             public void onClick(View v) {
                 Intent details = new Intent(context, MovieDetails.class);
                 Bundle details_content = new Bundle();
-                details_content.putString( TITLE_KEY, holder.rowTitle.getText().toString());
-                details_content.putString(WWW_KEY, holder.rowWWW.getText().toString());
-                details.putExtra("DETAILS", details_content);
-                context.startActivity(details);
+                details_content.putSerializable(MOVIE_KEY, currentMovie);
+                //details_content.putString(WWW_KEY, holder.rowWWW.getText().toString());
+                details.putExtras(details_content);
+                context.startActivityForResult(details, KOD);
             }
         });
     }
@@ -92,5 +93,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     public void setMovieList(List<Movie> newMovieList){
         movieList = newMovieList;
         notifyDataSetChanged();
+    }
+
+    public Movie getMovieAt(int position){
+        return movieList.get(position);
     }
 }
