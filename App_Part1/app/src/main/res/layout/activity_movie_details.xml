@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".db.MovieDetails"
-    android:background="@drawable/background_movies"
+    android:background="@drawable/background_movies">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
 
     <TextView
-        android:id="@+id/wwwLabel"
-        android:layout_width="129dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="24dp"
-        android:text="WWW"
-        android:textAlignment="center"
-        android:textColor="#FD42A9"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_updatedTitle"
-        tools:visibility="visible" />
-
-    <TextView
         android:id="@+id/titleLabel"
-        android:layout_width="115dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="148dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:text="Title"
         android:textAlignment="center"
@@ -40,63 +28,87 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <Button
-        android:id="@+id/www_btn"
-        android:layout_width="132dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="37dp"
-        android:text="WWW"
-        android:backgroundTint="#FD42A9"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_updatedWWW"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/update_btn"
-        android:layout_width="132dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="37dp"
-        android:text="update"
-        android:backgroundTint="#FD42A9"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/www_btn"
-        app:layout_constraintTop_toBottomOf="@+id/et_updatedWWW"
-        tools:visibility="visible" />
-
     <EditText
         android:id="@+id/et_updatedTitle"
-        android:layout_width="392dp"
-        android:layout_height="66dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
         android:layout_marginTop="15dp"
-        android:ems="10"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:backgroundTint="@color/white"
+        android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleLabel"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/wwwLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="WWW"
+        android:textAlignment="center"
+        android:textColor="#FD42A9"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_updatedTitle"
+        tools:visibility="visible" />
+
     <EditText
         android:id="@+id/et_updatedWWW"
-        android:layout_width="392dp"
-        android:layout_height="66dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wwwLabel"
         tools:visibility="visible" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center">
+
+        <Button
+            android:id="@+id/www_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FD42A9"
+            android:text="WWW"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/update_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FD42A9"
+            android:text="update"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/www_btn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
