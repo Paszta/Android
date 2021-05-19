@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_Part1">
-        <activity android:name=".db.MovieDetails"></activity>
+        <activity android:name=".drawing.Paint_MainActivity"></activity>
+        <activity android:name=".db.MovieDetails" />
         <activity android:name=".db.AddNewMovie" />
         <activity android:name=".db.Movies_MainActivity" />
         <activity android:name=".Menu">

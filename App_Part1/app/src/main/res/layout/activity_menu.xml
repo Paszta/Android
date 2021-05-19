@@ -30,8 +30,8 @@
         android:layout_width="197dp"
         android:layout_height="72dp"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="44dp"
-        android:alpha="0.8"
+        android:layout_marginTop="20dp"
+        android:alpha="0.7"
         android:backgroundTint="#D37272"
         android:text="Average grade"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,11 +42,23 @@
         android:layout_width="197dp"
         android:layout_height="72dp"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="48dp"
-        android:alpha="0.8"
+        android:layout_marginTop="20dp"
+        android:alpha="0.7"
         android:backgroundTint="#D37272"
         android:text="Movie Database"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstapp_btn" />
+
+    <Button
+        android:id="@+id/drawapp_btn"
+        android:layout_width="199dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0.7"
+        android:backgroundTint="#D37272"
+        android:text="Drawing app"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secapp_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
