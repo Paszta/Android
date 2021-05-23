@@ -49,7 +49,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
              databaseWriteExecutor.execute(() -> {
                  DAOMovie dao = INSTANCE.daoMovie();
-                 Movie[] movies = {new Movie("A", "Aaaa")};
+                 Movie[] movies = {new Movie("Test", "www.test.pl")};
                  for (Movie m : movies) dao.insert(m);
              });
          }

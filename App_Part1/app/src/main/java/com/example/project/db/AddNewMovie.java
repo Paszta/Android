@@ -5,12 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.project.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +50,31 @@ public class AddNewMovie extends AppCompatActivity {
             setResult(RESULT_OK, reply);
             finish();
         });
+
+        TextWatcher tw = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(title_et.getText().toString().isEmpty() || www_et.getText().toString().isEmpty()){
+                    add_btn.setVisibility(View.INVISIBLE);
+                } else {
+                    add_btn.setVisibility(View.VISIBLE);
+                }
+
+            }
+        };
+
+        title_et.addTextChangedListener(tw);
+        www_et.addTextChangedListener(tw);
 
     }
 }
